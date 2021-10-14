@@ -43,11 +43,31 @@ namespace MovieToonV3.Controllers
             MovieToonV3.Models.OEAEntities oea = new OEAEntities();
            var customertemp = oea.Customers.Where(cust=>cust.Name==rentalNew.Customer).FirstOrDefault();
            var movietemp = oea.Movies.Where(m=>m.Name==rentalNew.Movie).FirstOrDefault();
-           var membershiptemp = oea.Memberships.Where(mem=>mem.Type==customertemp.Membership);
+           var membershiptemp = oea.Memberships.Where(mem=>mem.Type==customertemp.Membership).FirstOrDefault();
             
+
             rentalNew.PriceToPayWithoutDiscount = movietemp.RentPrice;
-            rentalNew.PriceToPayWithDiscount = movietemp.RentPrice; 
+            rentalNew.PriceToPayWithDiscount = movietemp.RentPrice*membershiptemp.Discount; 
             oea.Rentals.Add(rentalNew);
+            oea.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
+        public ActionResult EditRental()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult EditRental(Rental rentalEdit)
+        {
+            MovieToonV3.Models.OEAEntities oea = new OEAEntities();
+            //var customertemp = oea.Customers.Where(cust => cust.Name == rentalEdit.Customer).FirstOrDefault();
+            //var movietemp = oea.Movies.Where(m => m.Name == rentalEdit.Movie).FirstOrDefault();
+            //var membershiptemp = oea.Memberships.Where(mem => mem.Type == customertemp.Membership).FirstOrDefault();
+            //rentalEdit.PriceToPayWithoutDiscount = movietemp.RentPrice;
+            //rentalEdit.PriceToPayWithDiscount = movietemp.RentPrice * membershiptemp.Discount;
+            
+            //  oea.Rentals.Add(rentalEdit);
             oea.SaveChanges();
 
             return RedirectToAction("Index");
