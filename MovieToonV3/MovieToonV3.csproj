@@ -132,6 +132,7 @@
     <Compile Include="Controllers\DashboardController.cs" />
     <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MovieController.cs" />
     <Compile Include="Controllers\RentalController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -167,6 +168,7 @@
       <DependentUpon>MovieToonEntity.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ViewModels\CustomerTable.cs" />
+    <Compile Include="Models\ViewModels\MovieTable.cs" />
     <Compile Include="Models\ViewModels\RentalTable.cs" />
     <Compile Include="Models\ViewModels\UserTable.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -232,6 +234,7 @@
     <Content Include="Views\Rental\Index.cshtml" />
     <Content Include="Views\Rental\NewRental.cshtml" />
     <Content Include="Views\Rental\EditRental.cshtml" />
+    <Content Include="Views\Movie\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
