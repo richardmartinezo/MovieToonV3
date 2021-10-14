@@ -231,6 +231,7 @@
     <Content Include="Views\Admin\NewCustomer.cshtml" />
     <Content Include="Views\Rental\Index.cshtml" />
     <Content Include="Views\Rental\NewRental.cshtml" />
+    <Content Include="Views\Rental\EditRental.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
