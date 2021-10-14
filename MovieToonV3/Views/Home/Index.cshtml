@@ -1,0 +1,42 @@
+﻿@{
+    ViewBag.Title = "Login";
+    @model MovieToonV3.Models.User
+}
+@using (Html.BeginForm("Authorize", "Home", FormMethod.Post))
+{
+    <div id="login-div">
+        <div class="row">
+            <div class="col-md-4">
+                <h2>Login</h2>
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                @Html.LabelFor(u => u.Username)
+                <!--   <input id="UserName" type="text" /> -->
+                @Html.TextBoxFor(u => u.Username)
+                @Html.ValidationMessageFor(u => u.Username)
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                @Html.LabelFor(u => u.Password)
+                <!--    <input id="Password" type="text" /> -->
+                @Html.TextBoxFor(u => u.Password)
+                @Html.ValidationMessageFor(u => u.Password)
+            </div>
+        </div>
+        <div class="row">
+            <label>@Html.DisplayFor(u => u.loginMessage) </label>
+            <div class="col-md-4">
+
+                <input id="Submit" type="submit" value="Enter">
+            </div>
+        </div>
+    </div>
+    <script src="~/Scripts/jquery-3.4.1.slim.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+}

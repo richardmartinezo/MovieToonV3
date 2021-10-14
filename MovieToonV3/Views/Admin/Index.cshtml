@@ -1,0 +1,68 @@
+﻿@model List<MovieToonV3.Models.ViewModels.CustomerTable>
+@{
+    ViewBag.Title = "Index";
+    if (Session["userID"] == null)
+    {
+        Response.Redirect("~/Home/Index");
+    }
+}
+
+<h2>Welcome @Session["userID"]</h2>
+
+
+<div class="row">
+    <div class="col-md-12">
+        <table class="table table-responsive">
+            <tr>
+                <th><a href="~/Rental/Index" class="btn btn-primary">Rental</a></th>
+                <th><a href="~/Admin/Index" class="btn btn-primary">Customers</a></th>
+                <th><a href="~/Movies/Index" class="btn btn-primary">Movies</a></th>
+               
+
+            </tr>
+            
+
+        </table>
+
+    </div>
+
+</div>
+<div class="row" style="text-align:right; padding: 5px;">
+    <a href="~/Admin/NewCustomer" class="btn btn-primary">New</a>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <table class="table table-responsive">
+            <tr>
+                <th>#</th>
+                <th>UID</th>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Email</th>
+                <th>Membership</th>
+
+            </tr>
+            @foreach (var element in Model) { 
+        <tr>
+            <td>@element.Id</td>
+            <td>@element.UID</td>
+            <td>@element.Name</td>
+            <td>@element.Age</td>
+            <td>@element.Email</td>
+            <td>@element.Membership</td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = element.Id }) |
+              
+                @Html.ActionLink("Remove", "Remove", new { id = element.Id })
+            </td>
+
+        </tr>
+            }
+
+        </table>
+
+    </div>
+
+</div>
+
+

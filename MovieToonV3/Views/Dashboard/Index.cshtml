@@ -1,0 +1,10 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    if (Session["userID"] ==null) {
+        Response.Redirect("~/Home/Index");
+    }
+}
+
+<h2>Welcome @Session["UserID"].ToString()</h2>
+

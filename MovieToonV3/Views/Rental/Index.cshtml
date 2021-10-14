@@ -1,0 +1,54 @@
+﻿@model List<MovieToonV3.Models.ViewModels.RentalTable>
+@{
+    ViewBag.Title = "Index";
+    if (Session["userID"] == null)
+    {
+        Response.Redirect("~/Home/Index");
+    }
+}
+
+<h2>Welcome @Session["userID"] - Rentals</h2>
+
+<div class="row" style="text-align:right; padding: 5px;">
+    <a href="~/Rental/NewRental" class="btn btn-primary">New Rental</a>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <table class="table table-responsive">
+            <tr>
+                <th>#</th>
+                <th>Customer Name</th>
+                <th>Membership</th>
+                <th>Movie Name</th>
+                <th>Payment Method</th>
+                <th>Total Price</th>
+
+            </tr>
+            @foreach (var element in Model)
+            {
+                <tr>
+                    <td>@element.Id</td>
+                    <td>@element.Customer</td>
+                    <td>@element.Membership</td>
+                    <td>@element.Movie</td>
+                    <td>@element.PayMethod</td>
+                    <td>@element.PriceToPayWithDiscount</td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = element.Id }) |
+
+                        @Html.ActionLink("Remove", "Remove", new { id = element.Id })
+                    </td>
+
+                </tr>
+            }
+
+        </table>
+
+    </div>
+
+</div>
+
+
+
+
+
